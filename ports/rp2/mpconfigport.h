@@ -171,6 +171,7 @@ extern const struct _mp_obj_module_t mp_module_onewire;
 extern const struct _mp_obj_module_t mp_module_rp2;
 extern const struct _mp_obj_module_t mp_module_uos;
 extern const struct _mp_obj_module_t mp_module_usocket;
+extern const struct _mp_obj_module_t mp_module_usb_hid;
 extern const struct _mp_obj_module_t mp_module_utime;
 
 #if MICROPY_PY_USOCKET
@@ -205,6 +206,7 @@ struct _mp_bluetooth_nimble_malloc_t;
     { MP_OBJ_NEW_QSTR(MP_QSTR__onewire), (mp_obj_t)&mp_module_onewire }, \
     { MP_OBJ_NEW_QSTR(MP_QSTR__rp2), (mp_obj_t)&mp_module_rp2 }, \
     { MP_ROM_QSTR(MP_QSTR_uos), MP_ROM_PTR(&mp_module_uos) }, \
+    { MP_ROM_QSTR(MP_QSTR_usb_hid), MP_ROM_PTR(&mp_module_usb_hid) }, \
     { MP_ROM_QSTR(MP_QSTR_utime), MP_ROM_PTR(&mp_module_utime) }, \
     SOCKET_BUILTIN_MODULE \
     NETWORK_BUILTIN_MODULE \
