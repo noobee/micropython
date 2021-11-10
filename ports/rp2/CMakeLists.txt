@@ -6,7 +6,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 # Set main target and component locations
-set(MICROPY_TARGET firmware)
+set(MICROPY_TARGET rp2hid)
 get_filename_component(MICROPY_DIR "../.." ABSOLUTE)
 if (PICO_SDK_PATH_OVERRIDE)
     set(PICO_SDK_PATH ${PICO_SDK_PATH_OVERRIDE})
@@ -102,6 +102,7 @@ set(MICROPY_SOURCE_PORT
     rp2_pio.c
     tusb_port.c
     uart.c
+    modhid.c
 )
 
 set(MICROPY_SOURCE_QSTR
@@ -124,6 +125,7 @@ set(MICROPY_SOURCE_QSTR
     ${PROJECT_SOURCE_DIR}/modutime.c
     ${PROJECT_SOURCE_DIR}/rp2_flash.c
     ${PROJECT_SOURCE_DIR}/rp2_pio.c
+    ${PROJECT_SOURCE_DIR}/modhid.c
 )
 
 set(PICO_SDK_COMPONENTS
@@ -208,6 +210,8 @@ target_include_directories(${MICROPY_TARGET} PRIVATE
     ${MICROPY_BOARD_DIR}
     "${PROJECT_SOURCE_DIR}"
     "${CMAKE_BINARY_DIR}"
+    # Hippy added below
+    ${MICROPY_DIR}/lib/tinyusb/src
 )
 
 target_compile_options(${MICROPY_TARGET} PRIVATE

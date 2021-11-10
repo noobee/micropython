@@ -34,7 +34,7 @@
 #include "mpconfigboard.h"
 
 // Board and hardware specific configuration
-#define MICROPY_HW_MCU_NAME                     "RP2040"
+#define MICROPY_HW_MCU_NAME                     "RP2HID" // "RP2040"
 #define MICROPY_HW_ENABLE_UART_REPL             (0) // useful if there is no USB
 #define MICROPY_HW_ENABLE_USBDEV                (1)
 
@@ -126,6 +126,7 @@ extern const struct _mp_obj_module_t mp_module_rp2;
 extern const struct _mp_obj_module_t mp_module_uos;
 extern const struct _mp_obj_module_t mp_module_usocket;
 extern const struct _mp_obj_module_t mp_module_utime;
+extern const struct _mp_obj_module_t mp_module_hid;
 
 #if MICROPY_PY_USOCKET
 #define SOCKET_BUILTIN_MODULE               { MP_ROM_QSTR(MP_QSTR_usocket), MP_ROM_PTR(&mp_module_usocket) },
@@ -160,6 +161,7 @@ struct _mp_bluetooth_nimble_malloc_t;
     { MP_OBJ_NEW_QSTR(MP_QSTR__rp2), (mp_obj_t)&mp_module_rp2 }, \
     { MP_ROM_QSTR(MP_QSTR_uos), MP_ROM_PTR(&mp_module_uos) }, \
     { MP_ROM_QSTR(MP_QSTR_utime), MP_ROM_PTR(&mp_module_utime) }, \
+    { MP_OBJ_NEW_QSTR(MP_QSTR__hid), (mp_obj_t)&mp_module_hid }, \
     SOCKET_BUILTIN_MODULE \
     NETWORK_BUILTIN_MODULE \
 
